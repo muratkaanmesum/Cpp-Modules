@@ -1,16 +1,19 @@
 
 #ifndef PHONEBOOK_H
-#define PHONEBOOK_H
-#include "Contact.hpp"
+# define PHONEBOOK_H
+# include "Contact.hpp"
 class PhoneBook
 {
-private:
+  private:
 	Contact contacts[8];
+	int empty_index;
 
-public:
+  public:
 	PhoneBook();
 	~PhoneBook();
-	void AddContact();
+	void add_to_phonebook();
+	void get_data(Contact contact);
+	void add_data();
 	void Search();
 };
 

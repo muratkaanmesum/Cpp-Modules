@@ -49,22 +49,3 @@ Contact::Contact()
 {
 	std::cout << "Contact Created !" << std::endl;
 }
-void Contact::get_data(Contact contact)
-{
-	std::string name;
-	std::cout << "Enter name: ";
-	getline(std::cin, name);
-	std::string surname;
-	std::cout << "Enter surname: ";
-	getline(std::cin, surname);
-	std::string phone_number;
-	std::cout << "Enter phone number: ";
-	getline(std::cin, phone_number);
-	std::string nickname;
-	std::cout << "Enter nickname: ";
-	getline(std::cin, nickname);
-	contact.set_name(name);
-	contact.set_surname(surname);
-	contact.set_phone_number(phone_number);
-	contact.set_nickname(nickname);
-}
