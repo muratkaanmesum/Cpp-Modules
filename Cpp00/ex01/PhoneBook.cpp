@@ -1,5 +1,6 @@
 #include "PhoneBook.hpp"
 #include <iostream>
+#include <cstring>
 
 PhoneBook::PhoneBook()
 {
@@ -41,8 +42,24 @@ void PhoneBook::add_data()
 	std::getline(std::cin, nickname);
 	this->contacts[this->empty_index % 8].set_nickname(nickname);
 }
+
 void PhoneBook::Search()
 {
-	this->get_data(this->contacts[this->empty_index - 1 > 0 ? this->empty_index
-			- 1 : 0]);
+    std::cout << "     index|" << "first name|" << " last name|" << "  nickname|" << std::endl;
+    int i = 0;
+    while (i < this->empty_index)
+    {
+        std::string first_name = this->contacts[i].get_name();
+        std::string last_name = this->contacts[i].get_surname();
+        std::string  nickname = this->contacts[i].get_nickname();
+		print_index(i);
+        print_string(first_name);
+        print_string(last_name);
+        print_string(nickname);
+        std::cout << std::endl;
+        i++;
+    }
+
 }
+
+

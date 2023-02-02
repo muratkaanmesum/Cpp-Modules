@@ -4,11 +4,9 @@
 int	main(void)
 {
 	PhoneBook	phonebook;
-	int			exit;
 
 	std::string str;
-	exit = 0;
-	while (exit == 0)
+	while (true)
 	{
 		std::cout << "Enter command: ";
 		std::getline(std::cin, str);
