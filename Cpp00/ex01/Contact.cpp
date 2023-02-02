@@ -4,13 +4,13 @@ Contact::~Contact()
 {
 	std::cout << "Contact Destroyed !" << std::endl;
 }
-void Contact::set_name(std::string name)
+void Contact::set_firstname(std::string name)
 {
-	this->name = name;
+	this->first_name= name;
 }
-void Contact::set_surname(std::string surname)
+void Contact::set_lastname(std::string surname)
 {
-	this->surname = surname;
+	this->last_name = surname;
 }
 void Contact::set_phone_number(std::string phone_number)
 {
@@ -25,13 +25,13 @@ void Contact::set_darkest_secret(std::string darkest_secret)
 	this->darkest_secret = darkest_secret;
 }
 
-std::string Contact::get_name()
+std::string Contact::get_firstname()
 {
-	return (this->name);
+	return (this->first_name);
 }
-std::string Contact::get_surname()
+std::string Contact::get_lastname()
 {
-	return (this->surname);
+	return (this->last_name);
 }
 std::string Contact::get_phone_number()
 {
@@ -44,6 +44,15 @@ std::string Contact::get_nickname()
 std::string Contact::get_darkest_secret()
 {
 	return this->darkest_secret;
+}
+void Contact::print_data()
+{
+	std::cout << "First name : " << this->get_firstname() << std::endl;
+	std::cout << "First name : " << this->get_lastname() << std::endl;
+	std::cout << "Phone number : " << this->get_phone_number() << std::endl;
+	std::cout << "Nickname : " << this->get_nickname() << std::endl;
+	std::cout << "Secret : " << this->get_darkest_secret() << std::endl;
+
 }
 Contact::Contact()
 {
