@@ -25,10 +25,7 @@ void Harl::warning() {
 void Harl::error() {
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
-void foo()
-{
-	std::cout <<"test";
-}
+
 void Harl::complain(std::string level)
 {
 	std::map<std::string, complains> map;
