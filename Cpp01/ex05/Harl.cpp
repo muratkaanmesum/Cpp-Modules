@@ -28,12 +28,24 @@ void Harl::error() {
 
 void Harl::complain(std::string level)
 {
+	/*
 	std::map<std::string, complains> map;
 	map["ERROR"] = &Harl::error;
 	map["WARNING"] = &Harl::warning;
 	map["INFO"] = &Harl::info;
 	map["DEBUG"] = &Harl::debug;
 	if(map.find(level) != map.end())
-		(this->*map.find(level)->second)();
+		(this->*map.find(level)->second)();*/
+	int index = 0;
+	complains  complain[4] = {&Harl::debug,&Harl::info,&Harl::warning,&Harl::error};
+	std::string Inputs[4] = {"DEBUG","INFO","WARNING","ERROR"};
+	for (int i = 0; i < 4; ++i) {
+		if(level == Inputs[i])
+		{
+			index = i;
+			break;
+		}
+	}
+	(this ->*complain[index])();
 }
 
