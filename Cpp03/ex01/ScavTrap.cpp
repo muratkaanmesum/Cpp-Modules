@@ -1,33 +1,30 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) {
-	std::cout << "Scavtrap Entered operator Overload "<< std::endl;
-	this->setName(name);
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
+	std::cout << "Scavtrap Constructor Called "<< std::endl;
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
 	this->setAttackDamage(20);
-}
-
-
-ScavTrap::ScavTrap(ScavTrap &copy):ClapTrap() {
-	this->setEnergyPoints(copy.getAttackDamage());
-	this->setAttackDamage(copy.getAttackDamage());
-	this->setHitPoints(copy.getHitPoints());
 }
 
 ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap is Destroyed!" << std::endl;
 }
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &c) {
-	std::cout << "Scavtrap Entered operator Overload "<< std::endl;
-	this->setName(c.getName());
-	this->setAttackDamage(c.getAttackDamage());
-	this->setEnergyPoints(c.getAttackDamage());
-	this->setHitPoints(c.getHitPoints());
-	return *this;
-}
 
 void ScavTrap::guardGate() {
+	std::cout << "Scavtrap Guards the gate!" <<std::endl;
+}
 
+void ScavTrap::attack(const std::string &target) {
+	if ( this->energy_points <= 0 ) {
+		std::cout << "< ScavTrap > - " << this->name << " is out of energy." << std::endl;
+		return;
+	}
+	if(this->hit_points <= 0){
+		std::cout<< "ScavTrap Doesn't Have Enough Hit points" << std::endl;
+		return;
+	}
+	std::cout << "< ScavTrap > - " << this->name << " attacks " << target << this->attack_damage << " points of damage !" << std::endl;
+	this->energy_points -= 1;
 }

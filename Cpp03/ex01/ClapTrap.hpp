@@ -7,10 +7,21 @@
 
 #include <iostream>
 class ClapTrap {
-private:
+protected:
+	int energy_points;
+	int attack_damage;
 	std::string name;
 	int hit_points;
 public:
+
+	ClapTrap(std::string name);
+	ClapTrap();
+	ClapTrap(ClapTrap &copy);
+	~ClapTrap();
+	void attack(const std::string &target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
+	ClapTrap &operator= (const ClapTrap &c);
 	const std::string &getName() const;
 
 	void setName(const std::string &name);
@@ -27,18 +38,6 @@ public:
 
 	void setAttackDamage(int attackDamage);
 
-private:
-	int energy_points;
-	int attack_damage;
-public:
-	ClapTrap(std::string name);
-	ClapTrap();
-	ClapTrap(ClapTrap &copy);
-	~ClapTrap();
-	void attack(const std::string &target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
-	ClapTrap &operator= (const ClapTrap &c);
 };
 
 

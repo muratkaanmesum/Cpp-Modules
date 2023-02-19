@@ -1,11 +1,11 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string name) {
-	std::cout << "Entered constructor" << std::endl;
+	std::cout << "Base Constructor Called!" << std::endl;
 	this->name = name;
-	this->hit_points = 10;
-	this->energy_points = 10;
-	this->attack_damage = 0;
+	this->hit_points = 100;
+	this->energy_points = 50;
+	this->attack_damage = 20;
 }
 
 ClapTrap::ClapTrap(ClapTrap &copy) {
@@ -16,7 +16,7 @@ ClapTrap::ClapTrap(ClapTrap &copy) {
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "Deconstructor called!" <<std::endl;
+	std::cout << "Base Deconstructor called!" <<std::endl;
 }
 
 void ClapTrap::attack(const std::string &target) {
