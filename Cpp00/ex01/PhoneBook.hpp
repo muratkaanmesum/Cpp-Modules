@@ -17,6 +17,5 @@ class PhoneBook
 	void add_data();
 	void Search();
 };
-void print_index(int index);
-void print_string(std::string str);
+std::string  get_input(std::string message);
 #endif

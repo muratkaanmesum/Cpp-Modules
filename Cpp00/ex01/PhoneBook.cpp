@@ -30,20 +30,15 @@ void PhoneBook::add_data()
 	std::string phone_number;
 	std::string nickname;
 	std::string secret;
-	std::cout << "Enter first_name: ";
-	std::getline(std::cin, first_name);
+	first_name = get_input("Enter First name");
 	this->contacts[this->empty_index % 8].set_firstname(first_name);
-	std::cout << "Enter surname: ";
-	std::getline(std::cin, last_name);
+	last_name = get_input("Enter Last name");
 	this->contacts[this->empty_index % 8].set_lastname(last_name);
-	std::cout << "Enter phone number: ";
-	std::getline(std::cin, phone_number);
+	phone_number = get_input("Enter Phone number");
 	this->contacts[this->empty_index % 8].set_phone_number(phone_number);
-	std::cout << "Enter nickname: ";
-	std::getline(std::cin, nickname);
+	nickname = get_input("Enter Nickname");
 	this->contacts[this->empty_index % 8].set_nickname(nickname);
-	std::cout << "Enter secret: ";
-	std::getline(std::cin, secret);
+	secret = get_input("Enter Secret");
 	this->contacts[this->empty_index % 8].set_darkest_secret(secret);
 }
 
@@ -96,10 +91,11 @@ void PhoneBook::Search()
 			this->contacts[index].print_data();
 			break ;
 		}
-		else{
+		else
+		{
 			std::cin.clear();
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(),
-								'\n');
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),
+							'\n');
 			std::cout << "wrong number. Try again!" << std::endl;
 		}
 	}

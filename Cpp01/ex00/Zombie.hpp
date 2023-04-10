@@ -12,6 +12,6 @@ public:
 	std::string get_name();
 	void announce();
 };
-
-
-#endif //ZOMBIE_HPP
+Zombie *newZombie(std::string name);
+void randomChump(std::string name);
+#endif
