@@ -1,4 +1,4 @@
-SRC = Zombie.cpp main.cpp Zombie_utils.cpp
+SRC = Zombie.cpp main.cpp zombieHorde.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = g++
 RM = rm -f
