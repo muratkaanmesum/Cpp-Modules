@@ -1,6 +1,6 @@
 #include "PhoneBook.hpp"
-#include <iostream>
 #include <cstring>
+#include <iostream>
 
 PhoneBook::PhoneBook()
 {
@@ -30,55 +30,73 @@ void PhoneBook::add_data()
 	std::string phone_number;
 	std::string nickname;
 	std::string secret;
-
-	std::cout << "Enter first_name: ";
-	std::getline(std::cin, first_name);
+	first_name = get_input("Enter First name");
 	this->contacts[this->empty_index % 8].set_firstname(first_name);
-	std::cout << "Enter surname: ";
-	std::getline(std::cin, last_name);
+	last_name = get_input("Enter Last name");
 	this->contacts[this->empty_index % 8].set_lastname(last_name);
-
-	std::cout << "Enter phone number: ";
-	std::getline(std::cin, phone_number);
+	phone_number = get_input("Enter Phone number");
 	this->contacts[this->empty_index % 8].set_phone_number(phone_number);
-	std::cout << "Enter nickname: ";
-	std::getline(std::cin, nickname);
+	nickname = get_input("Enter Nickname");
 	this->contacts[this->empty_index % 8].set_nickname(nickname);
-	std::cout << "Enter secret: ";
-	std::getline(std::cin, secret);
+	secret = get_input("Enter Secret");
 	this->contacts[this->empty_index % 8].set_darkest_secret(secret);
 }
 
 void PhoneBook::Search()
 {
-    std::cout << "     index|" << "first_name|" << " last_name|" << "  nickname|"
-	<<std::endl;
-    int i = 0;
-    while (i < this->empty_index)
-    {
-        std::string first_name = this->contacts[i].get_firstname();
-        std::string last_name = this->contacts[i].get_lastname();
-        std::string  nickname = this->contacts[i].get_nickname();
-		print_index(i);
-        print_string(first_name);
-        print_string(last_name);
-        print_string(nickname);
-        std::cout << std::endl;
-        i++;
-    }
-	int index;
+	int	i;
+	int	index;
+
+	std::cout << std::setw(10) << "index"
+				<< "|"
+				<< std::setw(10)
+				<< "first name"
+				<< "|"
+				<< std::setw(10)
+				<< "last name"
+				<< "|"
+				<< std::setw(10)
+				<< "nickname"
+				<< std::endl;
+	i = 0;
+	while (i < this->empty_index && i < 8)
+	{
+		std::string first_name = this->contacts[i].get_firstname();
+		std::string last_name = this->contacts[i].get_lastname();
+		std::string nickname = this->contacts[i].get_nickname();
+		std::cout << std::setw(10) << i << "|";
+		if (first_name.length() > 10)
+			std::cout << std::setw(9) << first_name.substr(0, 9) << ".";
+		else
+			std::cout << std::setw(10) << first_name;
+		std::cout << "|";
+		if (last_name.length() > 10)
+			std::cout << std::setw(9) << last_name.substr(0, 9) << ".";
+		else
+			std::cout << std::setw(10) << last_name;
+		std::cout << "|";
+		if (nickname.length() > 10)
+			std::cout << std::setw(9) << nickname.substr(0, 9) << ".";
+		else
+			std::cout << std::setw(10) << nickname;
+		std::cout << std::endl;
+		i++;
+	}
 	while (true)
 	{
 		std::cout << "Enter an index : ";
 		std::cin >> index;
-		if(index >= 0 && index < 8 && index < empty_index)
+		if (index >= 0 && index < 8 && index < empty_index)
 		{
 			this->contacts[index].print_data();
-			break;
+			break ;
 		}
 		else
+		{
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),
+							'\n');
 			std::cout << "wrong number. Try again!" << std::endl;
+		}
 	}
 }
-
-
