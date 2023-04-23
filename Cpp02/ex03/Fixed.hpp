@@ -48,7 +48,7 @@ public:
 	Fixed operator--(int);
 
 	float operator+(Fixed fixed);
-	float operator-(Fixed &fixed);
+	float operator-(Fixed &fixed) const;
 	float operator/(Fixed &fixed);
 	float operator*(Fixed fixed) const;
 	static Fixed & max(Fixed &fixedNum1, Fixed &fixedNum2);

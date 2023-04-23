@@ -93,7 +93,7 @@ float Fixed::operator+(Fixed fixed) {
 	return this->toFloat() + fixed.toFloat();
 }
 
-float Fixed::operator-(Fixed &fixed) {
+float Fixed::operator-(Fixed &fixed) const {
 	return this->toFloat() - fixed.toFloat();
 }
 
@@ -129,6 +129,7 @@ const Fixed &Fixed::min(const Fixed &fixedNum1, const Fixed &fixedNum2) {
 	return fixedNum2;
 
 }
+
 
 
 std::ostream	&operator<<(std::ostream &o, Fixed const &fixed)
