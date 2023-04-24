@@ -1,10 +1,10 @@
-SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp
+SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = g++
 RM = rm
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Animals
+NAME = Materias
 
 all: $(NAME)
 
