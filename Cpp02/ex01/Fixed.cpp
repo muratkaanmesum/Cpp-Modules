@@ -1,5 +1,5 @@
 #include "Fixed.hpp"
-#include <iostream>
+#include <cmath>
 
 Fixed	&Fixed::operator=(const Fixed &copy)
 {
@@ -15,7 +15,7 @@ Fixed::Fixed() {
 
 Fixed::Fixed(const Fixed &copy) {
 	std::cout <<"Copy constructor called" << std::endl;
-	this->fixed_point = copy.fixed_point;
+	*this = copy;
 }
 
 int Fixed::getRawBits() {
@@ -33,19 +33,22 @@ Fixed::~Fixed() {
 }
 
 Fixed::Fixed(int number) {
-	this->fixed_point = number;
+	this->fixed_point = number << bits;
 }
 
-Fixed::Fixed(const float floatNum) {
-	this->fixed_point
+Fixed::Fixed(const float floatNum) : fixed_point(roundf(floatNum * (1 << bits))) {
 }
 
 float Fixed::toFloat(void) const {
-	return 0;
+	return ((float)this->fixed_point / (float)(1 << bits));
+}
+int	Fixed::toInt(void)const
+{
+	return (this->fixed_point >> bits);
 }
 
-std::ostream &operator<<(std::ostream &out, Fixed &input) {
-	out << input.getRawBits();
+
+std::ostream	&operator<<(std::ostream &o, Fixed const &fixed)
+{
+	return (o << fixed.toFloat());
 }
-
-

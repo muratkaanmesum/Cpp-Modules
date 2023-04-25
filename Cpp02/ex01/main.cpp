@@ -1,9 +1,9 @@
 #include "Fixed.hpp"
 #include <iostream>
 
-int main() {
+int main( void ) {
 	Fixed a;
-	Fixed const b( 10 );
+	Fixed b( 10 );
 	Fixed const c( 42.42f );
 	Fixed const d( b );
 	a = Fixed( 1234.4321f );
@@ -15,5 +15,6 @@ int main() {
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << b.getRawBits() << std::endl;
 	return 0;
 }

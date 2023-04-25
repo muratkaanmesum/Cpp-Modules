@@ -1,18 +1,18 @@
-SRC = Fixed.cpp main.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
-RM = rm -f
+RM = rm
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = fixed
+NAME = BureaucratForms
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CPPFLAGS) $(OBJ)
+	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) *.o
 
 fclean: clean
 	$(RM) $(NAME)

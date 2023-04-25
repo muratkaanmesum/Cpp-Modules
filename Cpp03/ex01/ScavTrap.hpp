@@ -1,7 +1,3 @@
-//
-// Created by Lenovo on 5.02.2023.
-//
-
 #ifndef SCAVTRAP_HPP
 #define SCAVTRAP_HPP
 

@@ -8,6 +8,8 @@ public:
 	Ice();
 	~Ice();
 	virtual AMateria* clone() const;
+
+	void use(ICharacter &target);
 };
 
 

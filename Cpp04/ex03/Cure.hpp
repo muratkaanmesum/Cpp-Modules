@@ -1,7 +1,3 @@
-//
-// Created by Lenovo on 8.04.2023.
-//
-
 #ifndef CURE_HPP
 #define CURE_HPP
 
@@ -11,6 +7,9 @@ class Cure:public AMateria {
 public:
 	Cure();
 	~Cure();
+	virtual AMateria* clone() const;
+
+	void use(ICharacter &target);
 };
 
 

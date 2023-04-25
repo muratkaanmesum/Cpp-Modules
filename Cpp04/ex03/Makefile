@@ -1,18 +1,18 @@
-SRC = Fixed.cpp main.cpp
+SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 OBJ = $(SRC:.cpp=.o)
-CC = c++
-RM = rm -f
+CC = g++
+RM = rm
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = fixed
+NAME = Materias
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CPPFLAGS) $(OBJ)
+	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) *.o
 
 fclean: clean
 	$(RM) $(NAME)

@@ -2,8 +2,8 @@
 #define ICHARACTER_HPP
 
 #include "AMateria.hpp"
+class AMateria;
 class ICharacter {
-public:
 public:
 	virtual ~ICharacter() {}
 	virtual std::string const & getName() const = 0;
@@ -13,4 +13,4 @@ public:
 };
 
 
-#endif //ICHARACTER_HPP
+#endif

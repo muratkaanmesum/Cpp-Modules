@@ -11,5 +11,4 @@ int main()
 	for (int t = 0; t < 4; t++)
 		delete animals[t];
 
-
 }
