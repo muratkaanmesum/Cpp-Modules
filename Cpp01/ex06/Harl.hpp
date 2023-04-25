@@ -13,4 +13,4 @@ public:
 };
 typedef void (Harl::*complains)();
 
-#endif //HARL_HPP
+#endif

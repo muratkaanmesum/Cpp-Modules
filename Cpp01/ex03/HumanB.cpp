@@ -12,4 +12,3 @@ void HumanB::setWeapon(Weapon &weapon) {
 		this->weapon = &weapon;
 
 }
-
