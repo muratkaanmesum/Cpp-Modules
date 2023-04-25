@@ -47,17 +47,17 @@ public:
 
 	Fixed operator--(int);
 
-	float operator+(Fixed fixed);
+	float operator+(const Fixed &fixed);
 	float operator-(Fixed &fixed);
 	float operator/(Fixed &fixed);
-	float operator*(Fixed fixed) const;
+	float operator*(const Fixed &fixed);
 	static Fixed & max(Fixed &fixedNum1, Fixed &fixedNum2);
 	static const Fixed & max(const Fixed &fixedNum1,const Fixed &fixedNum2);
 	static Fixed &min(Fixed &fixedNum1, Fixed &fixedNum2);
 	static const Fixed &min(const Fixed &fixedNum1,const Fixed &fixedNum2);
 };
 
-// define outside because the second parameter automatically becomes this
+// define outside because the first parameter automatically becomes this
 std::ostream	&operator<<(std::ostream &o, Fixed const &fixed);
 
 
