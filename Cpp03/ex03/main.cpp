@@ -1,6 +1,15 @@
 #include "FragTrap.hpp"
-int main(){
-	FragTrap f1("test1");
-	f1.HighFivesGuys();
-	f1.attack("Air");
+
+#include "DiamondTrap.hpp"
+
+int main()
+{
+	DiamondTrap ash( "ash" );
+
+	ash.whoAmI();
+
+	ash.attack( "the air" );
+	ash.takeDamage( 10 );
+	ash.beRepaired( 10 );
+
 }

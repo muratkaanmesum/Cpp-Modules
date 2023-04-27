@@ -12,10 +12,10 @@ protected:
 	int attack_damage;
 	std::string name;
 	int hit_points;
+	ClapTrap();
 public:
 
 	ClapTrap(std::string name);
-	ClapTrap();
 	ClapTrap(ClapTrap &copy);
 	~ClapTrap();
 	void attack(const std::string &target);
@@ -23,19 +23,12 @@ public:
 	void beRepaired(unsigned int amount);
 	ClapTrap &operator= (const ClapTrap &c);
 	const std::string &getName() const;
-
 	void setName(const std::string &name);
-
 	int getHitPoints() const;
-
 	void setHitPoints(int hitPoints);
-
 	int getEnergyPoints() const;
-
 	void setEnergyPoints(int energyPoints);
-
 	int getAttackDamage() const;
-
 	void setAttackDamage(int attackDamage);
 
 };

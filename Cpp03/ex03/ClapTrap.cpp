@@ -62,7 +62,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &c) {
 }
 
 ClapTrap::ClapTrap() {
-	std::cout << "default constructor called!" << std::endl;
+	std::cout << "Default constructor called!" << std::endl;
 }
 
 const std::string &ClapTrap::getName() const {
