@@ -20,3 +20,8 @@ Zombie::Zombie() {
 	std::cout <<"Created Zombie" << std::endl;
 }
 
+Zombie::Zombie(std::string name)
+{
+	this->name = name;
+	std::cout <<"Created Zombie" << std::endl;
+}

@@ -1,7 +1,3 @@
-//
-// Created by Lenovo on 2.02.2023.
-//
-
 #ifndef HUMANA_HPP
 #define HUMANA_HPP
 
