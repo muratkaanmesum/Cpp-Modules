@@ -18,13 +18,33 @@ void ScavTrap::guardGate() {
 
 void ScavTrap::attack(const std::string &target) {
 	if ( this->energy_points <= 0 ) {
-		std::cout << "< ScavTrap > - " << this->name << " is out of energy." << std::endl;
+		std::cout << "ScavTrap  " << this->name << " is out of energy." << std::endl;
 		return;
 	}
 	if(this->hit_points <= 0){
 		std::cout<< "ScavTrap Doesn't Have Enough Hit points" << std::endl;
 		return;
 	}
-	std::cout << "< ScavTrap > - " << this->name << " attacks " << target << this->attack_damage << " points of damage !" << std::endl;
+	std::cout << "ScavTrap " << this->name << " attacks " << target << " " << this->attack_damage << " points of damage !" << std::endl;
 	this->energy_points -= 1;
+}
+
+ScavTrap::ScavTrap(): ClapTrap("DefaultScav") {
+	std::cout << "ScavTrap default Constructor" << std::endl;
+	this->setHitPoints(100);
+	this->setEnergyPoints(50);
+	this->setAttackDamage(20);
+}
+
+ScavTrap::ScavTrap(ScavTrap &cpy):ClapTrap(cpy.name) {
+	this->energy_points = cpy.energy_points;
+	this->attack_damage = cpy.attack_damage;
+	this->hit_points = cpy.hit_points;
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &c) {
+	if(this == &c)
+		return *this;
+	*this = c;
+	return *this;
 }

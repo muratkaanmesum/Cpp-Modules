@@ -5,7 +5,6 @@
 int main()
 {
 	DiamondTrap ash( "ash" );
-
 	ash.whoAmI();
 
 	ash.attack( "the air" );

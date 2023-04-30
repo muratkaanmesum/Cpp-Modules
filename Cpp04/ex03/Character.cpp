@@ -59,6 +59,7 @@ void Character::unequip(int idx) {
 		std::cout << "Character doesn't have anything on the slot!" << std::endl;
 		return;
 	}
+
 	//AMateria *m = this->inventory[idx];
 	this->inventory[idx] = 0;
 	std::cout << "AMateria is unequipped ! " << std::endl;

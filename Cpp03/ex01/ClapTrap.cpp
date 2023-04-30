@@ -1,18 +1,16 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) {
-	std::cout << "Base Constructor Called!" << std::endl;
-	this->name = name;
-	this->hit_points = 100;
-	this->energy_points = 50;
-	this->attack_damage = 20;
+ClapTrap::ClapTrap(const std::string &name):name(name),hit_points(10),energy_points(10),attack_damage(0) {
+	std::cout << "Entered constructor" << std::endl;
 }
+
 
 ClapTrap::ClapTrap(ClapTrap &copy) {
 	this->name = copy.name;
 	this->attack_damage = copy.attack_damage;
 	this->energy_points = copy.energy_points;
 	this->hit_points = copy.hit_points;
+	std::cout << "copy constructor called!" << std::endl;
 }
 
 ClapTrap::~ClapTrap() {
@@ -61,8 +59,11 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &c) {
 	return *this;
 }
 
-ClapTrap::ClapTrap() {
+ClapTrap::ClapTrap():name("Default") {
 	std::cout << "default constructor called!" << std::endl;
+	this->hit_points = 10;
+	this->energy_points = 10;
+	this->attack_damage = 0;
 }
 
 const std::string &ClapTrap::getName() const {

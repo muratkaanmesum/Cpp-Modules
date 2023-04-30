@@ -14,7 +14,7 @@ protected:
 	int hit_points;
 public:
 
-	ClapTrap(std::string name);
+	ClapTrap(const std::string &name);
 	ClapTrap();
 	ClapTrap(ClapTrap &copy);
 	~ClapTrap();
