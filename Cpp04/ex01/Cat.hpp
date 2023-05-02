@@ -9,7 +9,9 @@ private:
 	Brain *brain;
 public:
 	Cat();
+	Cat(Cat &copy);
 	~Cat();
+	Cat &operator=(const Cat &c);
 	void makeSound() const;
 };
 

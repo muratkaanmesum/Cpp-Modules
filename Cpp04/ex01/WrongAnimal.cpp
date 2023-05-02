@@ -6,7 +6,6 @@ WrongAnimal::WrongAnimal() {
 
 WrongAnimal::WrongAnimal(WrongAnimal &copy) {
 	this->type = copy.type;
-	std::cout << "Wrong Animal copy constructor called ! " << std::endl;
 }
 
 WrongAnimal::~WrongAnimal() {

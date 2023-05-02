@@ -6,6 +6,7 @@ Animal::Animal() {
 
 Animal::Animal(Animal &copy) {
 	this->type = copy.type;
+	std::cout << "Animal copy constructor called ! "<<std ::endl;
 }
 
 Animal::~Animal() {

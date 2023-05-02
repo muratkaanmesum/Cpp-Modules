@@ -1,6 +1,6 @@
 SRC = Animal.cpp Cat.cpp Dog.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
 OBJ = $(SRC:.cpp=.o)
-CC = g++
+CC = c++
 RM = rm
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
