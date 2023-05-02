@@ -12,7 +12,7 @@ void WrongCat::makeSound() const {
 	std::cout << "WrongCatNoises!" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat &copy) {
+WrongCat::WrongCat(WrongCat &copy)  : WrongAnimal(copy) {
     this->type = copy.type;
     std::cout << "WrongCat copy constructor called ! " << std::endl;
 }

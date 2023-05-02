@@ -19,7 +19,7 @@ Dog &Dog::operator=(const Dog &c) {
     *this = c;
     return *this;
 }
-Dog::Dog(Dog &cpy) {
+Dog::Dog(Dog &cpy)  : Animal(cpy) {
     this->type = cpy.type;
     std::cout << "Dog copy constructor called ! "<< std::endl;
 }
