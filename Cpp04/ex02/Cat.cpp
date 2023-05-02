@@ -19,7 +19,7 @@ void Cat::makeSound() const
 }
 
 Cat::Cat(Cat &copy)
-{
+ : AAnimal(copy) {
 	this->type = copy.type;
 	std::cout << "Cat copy constructor called ! " << std::endl;
 }
