@@ -1,7 +1,3 @@
-//
-// Created by Lenovo on 1.04.2023.
-//
-
 #ifndef DIAMONDTRAP_HPP
 #define DIAMONDTRAP_HPP
 #include "FragTrap.hpp"
@@ -12,6 +8,7 @@ private:
 	std::string name;
 public:
 	DiamondTrap(std::string name);
+    DiamondTrap();
 	~DiamondTrap();
 	using ScavTrap::attack;
 	void whoAmI();

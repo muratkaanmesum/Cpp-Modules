@@ -6,9 +6,9 @@ int main()
 {
 	DiamondTrap ash( "ash" );
 	ash.whoAmI();
-
 	ash.attack( "the air" );
 	ash.takeDamage( 10 );
 	ash.beRepaired( 10 );
-
+    ash.HighFivesGuys();
+    ash.guardGate();
 }

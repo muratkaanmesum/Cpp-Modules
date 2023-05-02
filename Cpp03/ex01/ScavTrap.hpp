@@ -14,4 +14,4 @@ public:
 };
 
 
-#endif //SCAVTRAP_HPP
+#endif 

@@ -16,7 +16,7 @@ FragTrap::FragTrap(std::string name):ClapTrap(name) {
 	this->attack_damage = 30;
 }
 
-FragTrap::FragTrap() :ClapTrap("Default"){
+FragTrap::FragTrap() :ClapTrap("DefaultTrap"){
 	this->setHitPoints(100);
 	this->setEnergyPoints(100);
 	this->setAttackDamage(30);
@@ -26,5 +26,12 @@ FragTrap::FragTrap(const FragTrap &cpy):ClapTrap(cpy.name) {
 	this->attack_damage = cpy.attack_damage;
 	this->energy_points = cpy.energy_points;
 	this->hit_points = cpy.hit_points;
+}
+
+FragTrap &FragTrap::operator=(const FragTrap &c) {
+    if(this == &c)
+        return *this;
+    *this = c;
+    return *this;
 }
 
