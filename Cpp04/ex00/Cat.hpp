@@ -1,14 +1,13 @@
-#ifndef CAT_HPP
-#define CAT_HPP
 
-#include "Animal.hpp"
+#ifndef EX00_CAT_HPP
+#define EX00_CAT_HPP
 
-class Cat:public Animal {
-public:
-	Cat();
-	~Cat();
-	void makeSound() const;
+
+
+class Cat {
+
 };
 
 
-#endif
+
+#endif //EX00_CAT_HPP
