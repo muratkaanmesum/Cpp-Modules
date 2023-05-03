@@ -16,9 +16,9 @@ int main()
 	delete j;
 	delete i;
 	const WrongAnimal *wAnimal = new WrongAnimal();
-	const WrongAnimal *wrongAnimal = new WrongCat();
+	const WrongAnimal *wrongCat = new WrongCat();
 	wAnimal->makeSound();
-	wrongAnimal->makeSound();
+	wrongCat->makeSound();
 	delete wAnimal;
-	delete wrongAnimal;
+	delete wrongCat;
 }

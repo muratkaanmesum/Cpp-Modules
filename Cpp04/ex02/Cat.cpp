@@ -21,6 +21,7 @@ void Cat::makeSound() const
 Cat::Cat(Cat &copy)
  : AAnimal(copy) {
 	this->type = copy.type;
+    this->brain = new Brain(*copy.brain);
 	std::cout << "Cat copy constructor called ! " << std::endl;
 }
 
@@ -29,5 +30,11 @@ Cat &Cat::operator=(const Cat &c)
 	if (this == &c)
 		return (*this);
 	*this = c;
+    this->brain = new Brain(*(c.brain));
 	return (*this);
+}
+
+Brain *Cat::GetBrain()
+{
+	return this->brain;
 }

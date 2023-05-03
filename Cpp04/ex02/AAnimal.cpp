@@ -28,3 +28,5 @@ const std::string &AAnimal::getType() const {
 void AAnimal::setType(const std::string &type) {
     AAnimal::type = type;
 }
+
+

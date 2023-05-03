@@ -10,5 +10,4 @@ int main()
 	const AAnimal* animals[4] = {new Dog(), new Dog(), new Cat(), new Cat() };
 	for (int t = 0; t < 4; t++)
 		delete animals[t];
-
 }
