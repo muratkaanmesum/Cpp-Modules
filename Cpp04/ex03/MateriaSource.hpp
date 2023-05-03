@@ -12,11 +12,9 @@ public:
 	MateriaSource(MateriaSource &copy);
 	~MateriaSource();
 	MateriaSource &operator=(const MateriaSource &c);
-
 	void learnMateria(AMateria *m);
-
 	AMateria *createMateria(const std::string &type);
 };
 
 
-#endif //MATERIASOURCE_HPP
+#endif
