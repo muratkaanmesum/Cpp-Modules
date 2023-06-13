@@ -11,7 +11,7 @@ public:
 	WrongAnimal(WrongAnimal &copy);
 	virtual ~WrongAnimal();
 	WrongAnimal &operator=(const WrongAnimal &c);
-	virtual void makeSound()const;
+	void makeSound()const;
 };
 
 

@@ -19,9 +19,14 @@ Dog &Dog::operator=(const Dog &c) {
     if(this == &c)
         return *this;
     *this = c;
+    this->brain = new Brain(*c.brain);
     return *this;
 }
 Dog::Dog(Dog &cpy)  : AAnimal(cpy) {
     this->type = cpy.type;
-    std::cout << "Cat copy constructor called ! "<< std::endl;
+    this->brain = new Brain();
+    std::cout << "Dog copy constructor called ! "<< std::endl;
+}
+Brain *Dog::GetBrain(){
+    return this->brain;
 }

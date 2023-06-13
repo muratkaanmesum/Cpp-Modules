@@ -60,7 +60,8 @@ void Character::unequip(int idx) {
 		return;
 	}
 
-	//AMateria *m = this->inventory[idx];
+	AMateria *m = this->inventory[idx];
+	(void)m;
 	this->inventory[idx] = 0;
 	std::cout << "AMateria is unequipped ! " << std::endl;
 }
