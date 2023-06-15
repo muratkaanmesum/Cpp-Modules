@@ -20,6 +20,10 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &c) {
 }
 static void checkType(ScalarConverter *sc)
 {
+    if(sc->isNan())
+        return;
+    if(sc->isInf())
+        return;
     if(sc->isChar())
         return;
     if(sc->isInt())
@@ -29,12 +33,38 @@ static void checkType(ScalarConverter *sc)
     if(sc->isDouble())
         return;
 
+
 }
 void ScalarConverter::convert() {
     checkType(this);
-    if(this->type == UNKNOWN)
-        std::cout << "Input is not convertible to anything" << std::endl;
-    printChar(this);
+    switch (this->type){
+        case CHAR:
+            printChar(this);
+            break;
+        case INT:
+            printInt(this);
+            break;
+        case FLOAT:
+            printFloat(this);
+            break;
+        case DOUBLE:
+            printDouble(this);
+            break;
+        case NANT:
+            printNan();
+            break;
+        case INF:
+            printInf();
+            break;
+        case NEGINF:
+            printNegInf();
+            break;
+        case UNKNOWN:
+            std::cout << "Input is not convertible to anything" << std::endl;
+        break;
+    }
+
+
 }
 void ScalarConverter::setStr(const char *argv) {
     this->str = argv;
@@ -84,4 +114,23 @@ int ScalarConverter::isChar() {
 
 ScalarConverter::Type ScalarConverter::getType() {
     return this->type;
+}
+int ScalarConverter::isNan()
+{
+    float num = std::strtof(&this->str[0],NULL);
+    if(!std::isnan(num))
+        return 0;
+    this->type = NANT;
+        return 1;
+}
+int ScalarConverter::isInf()
+{
+    float num = std::strtof(&this->str[0],NULL);
+    if(!std::isinf(num))
+        return 0;
+    if(this->str.find('-') != std::string::npos)
+        this->type = NEGINF;
+    else
+        this->type = INF;
+    return 1;
 }

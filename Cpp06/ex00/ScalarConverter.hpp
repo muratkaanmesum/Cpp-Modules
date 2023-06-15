@@ -5,6 +5,9 @@
 #include <cstdlib>
 #include <cstring>
 #include <cmath>
+#include <string>
+#include <iomanip>
+#include <cfloat>
 class ScalarConverter {
 public:
     typedef enum nbr_type
@@ -13,6 +16,9 @@ public:
         FLOAT,
         DOUBLE,
         CHAR,
+        NANT,
+        INF,
+        NEGINF,
         UNKNOWN,
     } Type;
 private:
@@ -32,8 +38,15 @@ public:
      int isFloat();
      int isDouble();
      int isChar();
+     int isNan();
+     int isInf();
      Type getType();
 };
 void printChar(ScalarConverter *sc);
-
+void printInt(ScalarConverter *sc);
+void printFloat(ScalarConverter *sc);
+void printDouble(ScalarConverter *sc);
+void printNan();
+void printNegInf();
+void printInf();
 #endif
