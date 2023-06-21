@@ -54,6 +54,7 @@ Array<T> &Array<T>::operator=(const Array &cpy)
 template<class T>
 Array<T>::~Array() {
     std::cout << "Array Destructed" << std::endl;
+    delete[] this->arr;
 }
 
 template<class T>
