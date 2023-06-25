@@ -3,6 +3,9 @@
 int main()
 {
     std::vector<int> *a = new std::vector<int>();
-    a->push_back(2);
-    ::easyfind(a,2);
+    for (int i = 0; i < 5; ++i) {
+        a->push_back(i);
+    }
+
+    std::cout << *::easyfind(a,4) << std::endl;
 }
