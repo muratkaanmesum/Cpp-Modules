@@ -11,11 +11,12 @@ public:
     MutantStack(MutantStack &copy);
     ~MutantStack();
     MutantStack<T> &operator=(const MutantStack<T> &c);
-    typename std::stack<T>::container_type::iterator begin()
+    typedef typename std::stack<T>::container_type::iterator iterator;
+    iterator begin()
     {
         return this->c.begin();
     }
-    typename std::stack<T>::container_type::iterator end()
+    iterator end()
     {
         return this->c.end();
     }
