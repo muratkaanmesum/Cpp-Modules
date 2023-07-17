@@ -9,7 +9,8 @@
 class BitcoinExchange {
 private:
     std::map<std::string,float> db;
-    static std::string readFile(std::ifstream &file);
+    std::map<std::string, int> inputFile;
+    void readDbFile();
 public:
     BitcoinExchange();
     BitcoinExchange(std::ifstream &file);
