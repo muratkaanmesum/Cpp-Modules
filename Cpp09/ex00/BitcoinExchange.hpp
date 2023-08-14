@@ -6,16 +6,17 @@
 #include <fstream>
 #include <sstream>
 #include <cstring>
-class BitcoinExchange {
+class BitcoinExchange
+{
 private:
-    std::map<std::string,float> db;
-    std::map<std::string, int> inputFile;
+    std::map<std::string, double> db;
+    std::map<std::string, double> inputFile;
     void readDbFile();
+
 public:
     BitcoinExchange();
     BitcoinExchange(std::ifstream &file);
     ~BitcoinExchange();
 };
-
 
 #endif
