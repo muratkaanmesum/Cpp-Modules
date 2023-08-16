@@ -1,4 +1,3 @@
-
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 #include <iostream>
@@ -6,11 +5,14 @@
 #include <fstream>
 #include <sstream>
 #include <cstring>
+#include <utility>
+#include <vector>
+#include <list>
 class BitcoinExchange
 {
 private:
-    std::map<std::string, double> db;
-    std::map<std::string, double> inputFile;
+    std::list<std::pair<std::string, double> > db;
+    std::list<std::pair<std::string, double> > inputFile;
     void readDbFile();
 
 public:

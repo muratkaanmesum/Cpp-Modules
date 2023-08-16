@@ -14,13 +14,21 @@ BitcoinExchange::~BitcoinExchange()
 BitcoinExchange::BitcoinExchange(std::ifstream &file)
 {
     readDbFile();
+    bool firstLine = true;
     std::string line;
     while (std::getline(file, line))
     {
-        std::cout << "line : " << line << std::endl;
+        if (firstLine)
+        {
+            firstLine = false;
+            continue;
+        }
         unsigned long end = line.find('|');
         if (end == std::string::npos)
+        {
+            this->inputFile.push_back(std::make_pair("Bad input => " + , 0));
             continue;
+        }
 
         std::string key = line.substr(0, end);
         double value;
@@ -36,11 +44,14 @@ BitcoinExchange::BitcoinExchange(std::ifstream &file)
                 std::cout << "Out of range !" << std::endl;
             else
                 std::cout << "Unknown exception !" << std::endl;
-            this->inputFile.insert(std::make_pair("Error!", 0));
+            this->inputFile.push_back(std::make_pair("Error!", 0));
             continue;
         }
-        this->inputFile.insert(std::make_pair(key, value));
-        std::cout << "key : " << key << " value : " << value << std::endl;
+        this->inputFile.push_back(std::make_pair(key, value));
+    }
+    for (std::list<std::pair<std::string, double> >::iterator it = this->inputFile.begin(); it != this->inputFile.end(); ++it)
+    {
+        std::cout << "key : " << it->first << " value : " << it->second << std::endl;
     }
     file.close();
 }
@@ -59,8 +70,9 @@ void BitcoinExchange::readDbFile()
             continue;
         }
         unsigned long end = line.find(',');
-        this->db.insert(std::make_pair(line.substr(start, end),
-                                       std::stod(line.substr(end + 1, line.length()))));
+        std::string key = line.substr(start, end);
+        double value = std::stod(line.substr(end + 1, line.length()));
+        this->db.push_back(std::make_pair(key, value));
     }
     file.close();
 }
