@@ -1,18 +1,24 @@
 #include "iter.hpp"
-void times_two(int const &n)
+class Awesome
 {
-    std::cout << n * 2 << std::endl;
-}
+  public:
+    Awesome( void ) : _n( 42 ) { return; }
+    int get( void ) const { return this->_n; }
+  private:
+    int _n;
+};
 
-void print(std::string const &s)
-{
-    std::cout << s << std::endl;
-}
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
 
-int main(void)
-{
-    int array[] = {1, 2, 3, 4, 5};
-    ::iter(array, 5, times_two);
-    std::string strings[] = {"s1", "s2", "s3"};
-    ::iter(strings, 3, print);
+template< typename T >
+void print( T const & x ) { std::cout << x << std::endl; return; }
+
+int main() {
+  int tab[] = { 0, 1, 2, 3, 4 };  
+  Awesome tab2[5];
+
+  iter( tab, 5, print<int> );
+  iter( tab2, 5, print<Awesome> );
+
+  return 0;
 }
