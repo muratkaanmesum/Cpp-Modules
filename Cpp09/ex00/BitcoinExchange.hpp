@@ -15,7 +15,7 @@
 class BitcoinExchange
 {
 private:
-    std::list<std::pair<std::string, double> > db;
+    std::map<std::string , double> db;
     std::list<std::pair<std::string, double> > inputFile;
     void readDbFile();
     void readInputFile(std::ifstream &file);
