@@ -2,11 +2,15 @@
 #include <iostream>
 #include <sstream>
 #include <cstring>
+#include <string>
 class RPN
 {
-	private:
-		std::stack<int> stack;
-	public:
-		RPN(std::string str);
-		getResult();
+private:
+	std::stack<std::string> stack;
+	bool checkOperator(std::string token);
+	void handleStackOperation();
+
+public:
+	RPN(std::string arg);
+	double getResult();
 };
