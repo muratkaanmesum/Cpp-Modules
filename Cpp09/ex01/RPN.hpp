@@ -7,10 +7,11 @@ class RPN
 {
 private:
 	std::stack<std::string> stack;
-	bool checkOperator(std::string token);
+    bool isValidResult;
+	static bool checkOperator(const std::string& token);
 	void handleStackOperation();
-
+    bool checkErrors(const std::string& arg);
 public:
-	RPN(std::string arg);
+	RPN(const std::string& arg);
 	double getResult();
 };

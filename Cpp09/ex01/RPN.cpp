@@ -1,27 +1,28 @@
 #include "RPN.hpp"
 
-RPN::RPN(std::string str)
+RPN::RPN(const std::string& str)
 {
-	// split string into tokens
 	std::istringstream iss(str);
 	std::string token;
-
-	while (std::getline(iss, token, ' '))
-	{
-		if (token.size() == 0)
-			continue;
-		if (checkOperator(token))
-		{
-			stack.push(token);
-			handleStackOperation();
-		}
-		else
-			this->stack.push(token);
-	}
-
+    this->isValidResult = checkErrors(str);
+    if(isValidResult)
+   {
+        while (std::getline(iss, token, ' '))
+        {
+            if (token.empty())
+                continue;
+            if (checkOperator(token))
+            {
+                stack.push(token);
+                handleStackOperation();
+            }
+            else
+                this->stack.push(token);
+        }
+   }
 }
 
-bool RPN::checkOperator(std::string token)
+bool RPN::checkOperator(const std::string& token)
 {
 	if (token == "+" || token == "-" || token == "/" || token == "*")
 		return true;
@@ -47,5 +48,40 @@ void RPN::handleStackOperation()
 }
 double RPN::getResult()
 {
+    if(!this->isValidResult){
+        throw std::invalid_argument("");
+    }
 	return std::stod(this->stack.top());
+}
+
+bool RPN::checkErrors(const std::string& arg) {
+    std::istringstream iss(arg);
+    std::string token;
+    int valCount = 0;
+    int operatorCount = 0;
+    while (std::getline(iss, token, ' '))
+    {
+        if (token.empty())
+            continue;
+        try{
+            double val = std::stod(token);
+            if(val < 10)
+            {
+                valCount++;
+            continue;
+            }
+        }
+        catch(std::exception &e)
+        {
+            if(token == "*" || token == "/" || token == "+" || token =="-")
+            {
+                operatorCount++;
+                continue;
+            }
+            return false;
+        }
+    }
+    if(valCount - 1 != operatorCount)
+            return false;
+    return true;
 }
