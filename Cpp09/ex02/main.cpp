@@ -2,5 +2,8 @@
 
 int main(int argc , char ** argv)
 {
-    PmergeMe insertMerge(argv);
+    if(argc <= 1)
+            return 1;
+    PmergeMe insertMerge(&argv[1]);
+    insertMerge.getResult();
 }

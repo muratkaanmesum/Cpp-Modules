@@ -5,21 +5,23 @@
 #include <iostream>
 #include <string>
 #include <cstring>
-
+#include <algorithm>
+#include <ctime>
 class PmergeMe {
 private:
     std::vector<int> cont1;
     std::list<int> cont2;
     bool errorFlag;
     void handleSort();
-    void handleVector();
+    std::vector<int>  handleVector(std::vector<int> vec);
+    std::vector<int> mergeVector(std::vector<int> left, std::vector<int> right);
 public:
     PmergeMe();
     PmergeMe(char **argv);
     PmergeMe(PmergeMe &copy);
     ~PmergeMe();
     PmergeMe &operator=(const PmergeMe &c);
-
+    void getResult();
 };
 
 
