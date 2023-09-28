@@ -23,6 +23,23 @@ void printVector(std::vector<int> &vector)
         std::cout << *it << " ";
     std::cout << std::endl;
 }
+void printList(std::list<int>list)
+{
+    for(std::list<int>::iterator it = list.begin();it != list.end(); it++)
+        std::cout << *it << " ";
+    std::cout << std::endl;
+}
+std::list<int>::iterator operator +(std::list<int>::iterator it, int value)
+{
+    for(int i = 0;i < value;i++)
+        it++;
+    return it;
+}
+void PmergeMe::handleList(std::list<int> lst)
+{
+    int mid = lst.size() / 2;
+    std::list<int> leftPart(lst.begin() +mid);
+}
 void PmergeMe::handleSort()
 {
     if(errorFlag){
@@ -37,6 +54,11 @@ void PmergeMe::handleSort()
     printVector(resultVec);
     double time_vector = static_cast<double>(std::clock() - start) / CLOCKS_PER_SEC * 1000;
     std::cout << std::endl << "Time to process a range of " << this->cont1.size() << " elements with std::vector " << time_vector << " us" << std::endl;
+    std::cout << "before :";
+    printList(this->cont2);
+    std::clock_t start = std::clock();
+    std::vector<int> resultVec = handleList(this->cont2);
+    std::cout << "after :";
 }
 
 PmergeMe::PmergeMe(char **argv) {

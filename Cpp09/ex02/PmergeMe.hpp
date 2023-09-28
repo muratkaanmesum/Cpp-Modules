@@ -15,6 +15,7 @@ private:
     void handleSort();
     std::vector<int>  handleVector(std::vector<int> vec);
     std::vector<int> mergeVector(std::vector<int> left, std::vector<int> right);
+    std::list<int> handleList(std::list<int> lst);
 public:
     PmergeMe();
     PmergeMe(char **argv);
