@@ -35,10 +35,21 @@ std::list<int>::iterator operator +(std::list<int>::iterator it, int value)
         it++;
     return it;
 }
-void PmergeMe::handleList(std::list<int> lst)
+std::list<int> PmergeMe::handleList(std::list<int> lst)
 {
-    int mid = lst.size() / 2;
-    std::list<int> leftPart(lst.begin() +mid);
+    if(lst.size() <= 1)
+            return lst;
+    size_t mid = lst.size() / 2;
+    std::list<int> leftPart;
+    std::list<int> rightPart;
+    for (size_t i = 0; i < mid; ++i) {
+        leftPart.push_back(lst.front());
+        lst.pop_front();
+    }
+    rightPart = lst;
+    leftPart = handleList(leftPart);
+    rightPart = handleList(rightPart);
+    return mergeList(leftPart,rightPart);
 }
 void PmergeMe::handleSort()
 {
@@ -55,10 +66,14 @@ void PmergeMe::handleSort()
     double time_vector = static_cast<double>(std::clock() - start) / CLOCKS_PER_SEC * 1000;
     std::cout << std::endl << "Time to process a range of " << this->cont1.size() << " elements with std::vector " << time_vector << " us" << std::endl;
     std::cout << "before :";
+    start = std::clock();
     printList(this->cont2);
-    std::clock_t start = std::clock();
-    std::vector<int> resultVec = handleList(this->cont2);
+    std::list<int> resultList = handleList(this->cont2);
     std::cout << "after :";
+    printList(resultList);
+   time_vector = static_cast<double>(std::clock() - start) / CLOCKS_PER_SEC * 1000;
+    std::cout << std::endl << "Time to process a range of " << this->cont2.size() << " elements with std::list " << time_vector << " us" << std::endl;
+
 }
 
 PmergeMe::PmergeMe(char **argv) {
@@ -97,6 +112,34 @@ void PmergeMe::getResult() {
 
 std::vector<int> PmergeMe::mergeVector(std::vector<int> left, std::vector<int> right) {
     std::vector<int> result;
+    while (!left.empty() && !right.empty())
+    {
+        if (left.front() <= right.front())
+        {
+            result.push_back(left.front());
+            left.erase(left.begin());
+        }
+        else
+        {
+            result.push_back(right.front());
+            right.erase(right.begin());
+        }
+    }
+    while (!left.empty())
+    {
+        result.push_back(left.front());
+        left.erase(left.begin());
+    }
+    while (!right.empty())
+    {
+        result.push_back(right.front());
+        right.erase(right.begin());
+    }
+    return result;
+}
+
+std::list<int> PmergeMe::mergeList(std::list<int> left, std::list<int> right) {
+    std::list<int> result;
     while (!left.empty() && !right.empty())
     {
         if (left.front() <= right.front())

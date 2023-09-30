@@ -16,6 +16,7 @@ private:
     std::vector<int>  handleVector(std::vector<int> vec);
     std::vector<int> mergeVector(std::vector<int> left, std::vector<int> right);
     std::list<int> handleList(std::list<int> lst);
+    std::list<int> mergeList(std::list<int> left, std::list<int> right);
 public:
     PmergeMe();
     PmergeMe(char **argv);
